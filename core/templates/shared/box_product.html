@@ -1,0 +1,30 @@
+<article class="product-card">
+<div class="img-wrap">
+    <span class="badge">New</span>
+    <button class="wishlist" aria-label="Wishlist">♡</button>
+    <img src="{{product.image.url}}" alt="No pic" />
+</div>
+<div class="stock"><span class="dot"></span>In stock · {{ product.quantity }} items</div>
+<h3><a href="{% url 'product-detail-page' slug=product.slug %}" class="name"> {{ product.title }} </a></h3>
+<p> {{ product.description|truncatewords:10}} </p>
+{% comment %} <h5>Category :  </h5>
+{% for cat in product.category.all %}
+
+    <p> {{ cat.title }} </p>
+
+{% endfor %} {% endcomment %}
+<div class="price"><span class="now">${{ product.price }}</span></div>
+<div class="stars">
+    {% with stars='12345' %}
+        {% for star in stars|slice:product.rate %}
+            *
+        {% endfor %}
+    {% endwith %}
+    
+    <span class="count">(56)</span></div>
+
+    <p> {{ product.created_at|date:"o/m/d" }} </p>
+
+    <a href=" {% url "product-detail-page" slug=product.slug %} " class="btn">Order now →</a>
+
+</article>

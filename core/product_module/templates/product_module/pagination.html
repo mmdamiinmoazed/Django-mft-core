@@ -1,0 +1,24 @@
+<div class="pagination">
+{% comment %} {% if products.has_previous %}
+    <a href="?page={{ products.previous_page_number }}{% if category %}&category={{ category }}{% endif %}">
+
+    </a>
+{% endif %} {% endcomment %}
+{% comment %} The most important part  {% endcomment %}
+{% for num in products.paginator.page_range %}
+    {% if num == products.number %}
+    <a href="?page={{ num }}" class="pg is-active">
+        {{ num }} 
+    </a>
+    {% else %}
+    <a href="?page={{ num }}" class="pg">
+        {{ num }}
+    </a>
+    {% endif %}
+{% endfor %}
+
+{% comment %} {% if products.has_next %}
+    <a href="?page={{ products.next_page_number }}">
+    </a>
+{% endif %} {% endcomment %}
+</div>

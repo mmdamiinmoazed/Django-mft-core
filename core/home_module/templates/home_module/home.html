@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+{% block title %}
+Home page
+{% endblock %}
+{% block content %}
+  <!-- Mobile drawer -->
+  <div class="drawer" id="drawer" aria-hidden="true">
+    <div class="drawer-head">
+      <a href="index.html" class="brand"><span class="brand-mark">S</span> Sprylo</a>
+      <button class="drawer-close" aria-label="Close menu">Close ✕</button>
+    </div>
+    <a href="index.html">Home</a>
+    <a href="shop.html">Shop</a>
+    <a href="product.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="contact.html">Contact</a>
+    <a href="cart.html" class="btn btn--indigo" style="margin-top:var(--s5); justify-content:center">View cart →</a>
+  </div>
+
+  <main id="main">
+
+    <!-- HERO: bento grid -->
+    <section class="hero">
+      <div class="container">
+        <div class="bento">
+
+          <article class="bento-card bento-card--lg">
+            <div class="sparkle"></div>
+            <div>
+              <span class="eyebrow">⚡ Audio &middot; Featured</span>
+              <h2>Apple HomePod<br/>2nd Gen Speaker</h2>
+              <p>Apple ecosystem with high-quality audio playback while serving as a hub for controlling smart home devices. Spatial audio, room-sensing tech.</p>
+              <a href="product.html" class="btn btn--paper">Shop Now
+                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <div class="dots"><span class="active"></span><span></span><span></span></div>
+            </div>
+            <img class="product" src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=900&q=80&auto=format&fit=crop" alt="HomePod speaker" />
+          </article>
+
+          <article class="bento-card bento-card--purple">
+            <div class="sparkle"></div>
+            <span class="eyebrow">Wearables</span>
+            <h3 style="font-size:var(--text-xl); line-height:1.15">Explore<br/>Apple Watch</h3>
+            <a href="product.html" class="shop-now">Shop Now
+              <svg width="12" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <img class="product" src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80&auto=format&fit=crop" alt="Apple Watch" />
+          </article>
+
+          <article class="bento-card bento-card--teal">
+            <div class="sparkle"></div>
+            <span class="eyebrow">Latest Phones</span>
+            <h3 style="font-size:var(--text-xl); line-height:1.15">Galaxy S24<br/>Ultra · 5G</h3>
+            <a href="product.html" class="shop-now">Shop Now
+              <svg width="12" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+            <img class="product" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=600&q=80&auto=format&fit=crop" alt="Samsung Galaxy phone" />
+          </article>
+
+          <div class="bento-row">
+            <article class="bento-card bento-card--orange">
+              <div class="sparkle"></div>
+              <span class="eyebrow">Cameras</span>
+              <h3 style="font-size:var(--text-lg); line-height:1.2">Samsung<br/>Gear Camera</h3>
+              <a href="product.html" class="shop-now">Shop Now
+                <svg width="12" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <img class="product" src="https://images.unsplash.com/photo-1606983340126-99ab4feaa64a?w=500&q=80&auto=format&fit=crop" alt="Camera" />
+            </article>
+
+            <article class="bento-card bento-card--green">
+              <div class="sparkle"></div>
+              <span class="eyebrow">Audio</span>
+              <h3 style="font-size:var(--text-lg); line-height:1.2">Beats<br/>Studio Buds</h3>
+              <a href="product.html" class="shop-now">Shop Now
+                <svg width="12" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <img class="product" src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=500&q=80&auto=format&fit=crop" alt="Earbuds" />
+            </article>
+
+            <article class="bento-card bento-card--black">
+              <div class="sparkle"></div>
+              <span class="eyebrow">DSLR</span>
+              <h3 style="font-size:var(--text-lg); line-height:1.2">Hero Camera<br/>X-Series</h3>
+              <a href="product.html" class="shop-now">Shop Now
+                <svg width="12" height="10" viewBox="0 0 14 10" fill="none" aria-hidden="true"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <img class="product" src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=80&auto=format&fit=crop" alt="DSLR camera" />
+            </article>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TRENDING PRODUCTS -->
+    <section class="section" style="padding-top: var(--s5)">
+      <div class="container">
+        <div class="section-head">
+          <h2>Trending Products</h2>
+          <a href="shop.html" class="view-all">View all
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+
+        <div class="tabs" role="tablist">
+          <button class="tab is-active" role="tab" aria-selected="true">Mobile</button>
+          <button class="tab" role="tab">Watch</button>
+          <button class="tab" role="tab">Camera</button>
+          <button class="tab" role="tab">Accessories</button>
+          <button class="tab" role="tab">Speaker</button>
+        </div>
+
+        <div class="products">
+
+        
+          {% comment %} The products part {% endcomment %}
+          
+          {% for product in products %}
+
+            {% include 'shared/box_product.html' %}
+
+          {% endfor %}
+        
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOUNT BANNERS -->
+    {% include 'home_module/discount-banners.html' %}
+    <!-- CATEGORIES grid -->
+    {% include 'home_module/categories-grid.html' %}
+
+    <!-- COMPACT row (4 cards in 2x2 layout) -->
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="section-head">
+          <h2>Just for you</h2>
+          <a href="shop.html" class="view-all">More picks
+            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h12m0 0L9 1m4 4L9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+        <div class="compact-row">
+          <article class="compact-card">
+            <div class="pic"><img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=300&q=80&auto=format&fit=crop" alt="" /></div>
+            <div>
+              <div class="stock">IN STOCK · 12</div>
+              <div class="name">Apple Airpods V57</div>
+              <div class="price">$680</div>
+              <a href="cart.html" class="btn">Order Now</a>
+            </div>
+          </article>
+          <article class="compact-card">
+            <div class="pic"><img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300&q=80&auto=format&fit=crop" alt="" /></div>
+            <div>
+              <div class="stock">IN STOCK · 8</div>
+              <div class="name">Apple MacBook Pro</div>
+              <div class="price">$2,780</div>
+              <a href="cart.html" class="btn">Order Now</a>
+            </div>
+          </article>
+          <article class="compact-card">
+            <div class="pic"><img src="https://images.unsplash.com/photo-1592840496694-26d035b52b48?w=300&q=80&auto=format&fit=crop" alt="" /></div>
+            <div>
+              <div class="stock">IN STOCK · 24</div>
+              <div class="name">Power Wired Controller</div>
+              <div class="price">$190</div>
+              <a href="cart.html" class="btn">Order Now</a>
+            </div>
+          </article>
+          <article class="compact-card">
+            <div class="pic"><img src="https://images.unsplash.com/photo-1527814050087-3793815479db?w=300&q=80&auto=format&fit=crop" alt="" /></div>
+            <div>
+              <div class="stock">IN STOCK · 36</div>
+              <div class="name">Gaming Mouse Pro</div>
+              <div class="price">$190</div>
+              <a href="cart.html" class="btn">Order Now</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND STRIP -->
+    {% include 'home_module/brands-strip.html' %}
+
+    <!-- NEWSLETTER -->
+    {% include 'home_module/newsletter.html' %}
+  
+  </main>
+
+  
+
+{% endblock content %}
