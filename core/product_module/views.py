@@ -9,6 +9,7 @@ class ProductView(View) :
         products = models.Product.objects.all()
         count_products = products.count()
         pg = Paginator(products , 5)
+        
         page_number = request.GET.get("page")
 
       
