@@ -76,7 +76,9 @@
             <h2 style="font-size: var(--text-xl); margin-bottom: var(--s2)">Send us a message</h2>
             <p style="color: var(--fg-soft); font-size: var(--text-sm); margin-bottom: var(--s5)">No bots, no templated
               replies — a real person at our SF or Berlin desks will pick this up.</p>
-           
+            {% if form.non_field_errors %}
+              <p style="color : red;"> {{ form.non_field_errors }} </p>
+            {% endif %}
            <!-- From is set by python -->
             {% for field in form %}
                 <div class="field">
