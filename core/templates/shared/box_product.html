@@ -1,3 +1,4 @@
+{% load humanize %}
 <article class="product-card">
 <div class="img-wrap">
     <span class="badge">New</span>
@@ -23,7 +24,7 @@
     
     <span class="count">(56)</span></div>
 
-    <p> {{ product.created_at|date:"o/m/d" }} </p>
+    <p> {{ product.created_at|naturaltime }} </p>
 
     <a href=" {% url "product-detail-page" slug=product.slug %} " class="btn">Order now →</a>
 

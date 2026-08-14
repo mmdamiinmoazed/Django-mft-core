@@ -2,6 +2,7 @@
 {% block title %}
 Product-Detail 
 {% endblock title %}
+{% load humanize %}
 {% block content %}
  
 
@@ -29,7 +30,7 @@ Product-Detail
         <div class="pdp-info">
           <span class="pdp-cat">⚡ Audio · Featured</span>
           <h1> {{ product.title }} </h1>
-          <p> {{ product.created_at|date:'o/m/d' }} </p>
+          <p> {{ product.created_at|naturaltime }} </p>
           <div class="rating-row">
             <span style="color: var(--amber); font-size: 16px">
                 {% with stars='12345' %}
