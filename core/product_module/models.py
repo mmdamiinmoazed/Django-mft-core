@@ -4,9 +4,6 @@ from django.utils import timezone
 import datetime
 # Create your models here.
 class Product (models.Model): 
-
-    
-
     title = models.CharField(verbose_name="Title of product" , max_length=100 , null=False)
     price = models.IntegerField(verbose_name="Price of product " , null=False ) 
     quantity = models.IntegerField(verbose_name="Quantity" , null=False)
@@ -20,15 +17,29 @@ class Product (models.Model):
     category = models.ManyToManyField('Category')
 
     created_at = models.DateTimeField( auto_now_add=True ,  null=True )
+    
+    is_active = models.BooleanField(verbose_name="Active (if quantity not zero)" ,   )
+    
     def __str__(self):
         return self.title
     
-
+    def set_active(self) : 
+        if self.quantity == 0 : 
+            self.is_active = False
+        else : 
+            self.is_active = True
     def save(self,*args, **kwargs):
         self.slug = slugify(self.title)
-        self.created_at = datetime.datetime.now()
+        self.set_active()
+
+        # if self.quantity == 0 : 
+        #     self.is_active = False
+
+        '''This code means 
+            There is a direct connection between is_active and quantity columns'''
+        
         return super().save(*args, **kwargs)
-    
+
 class Category(models.Model) : 
     title = models.CharField(max_length=30)
     created_at = models.DateTimeField(auto_now=True)

@@ -2,6 +2,7 @@
 {% block title %}
 Product page
 {% endblock title %}
+{% load product_tags %}
 {% block content %}
 
 <main id="main">
@@ -31,7 +32,7 @@ Product page
                 <label><input name="cameras" type="checkbox"> Cameras <span class="ct">42</span></label>
                 <label><input name="headphones" type="checkbox"> Headphones &amp; Buds <span class="ct">35</span></label>
                 <label><input name="gaming" type="checkbox"> Gaming <span class="ct">31</span></label>
-                <label><input type="checkbox"> Accessories <span class="ct">112</span></label>
+                <label><input name="accessories" type="checkbox"> Accessories <span class="ct">112</span></label>
 
 
             </div>
@@ -64,6 +65,8 @@ Product page
             <div class="filter-block">
               <h3>Availability</h3>
               <label><input name="in-stock" type="checkbox" checked> In stock <span class="ct">298</span></label>
+              {% comment %} Test please delete it after test {% endcomment %}
+              <label><input name="not-in-stock" type="checkbox" checked> Not - In stock <span class="ct">298</span></label>
               <label><input name="on-sale" type="checkbox"> On sale <span class="ct">64</span></label>
               <label><input name="new-arrivals" type="checkbox"> New arrivals <span class="ct">28</span></label>
             </div>
@@ -87,13 +90,12 @@ Product page
             </div>
             </form>
             <div class="shop-grid">
-
-      
-          {% for product in products %}
-              
-                {% include 'shared/box_product.html' %}
-              
-          {% endfor %}
+              {% comment %} This template tag is a reference for all_product {% endcomment %}
+              {% comment %} {% get_all_products %} {% endcomment %}
+             {% for product in products %}
+                  {% include 'shared/box_product.html' %}
+              {% endfor %} 
+ 
             </div>
 
 

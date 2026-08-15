@@ -2,6 +2,7 @@ from django.shortcuts import render ,  redirect
 from django.views.generic import View
 from .forms import ContactForm
 from .models import ContactModel
+from django.contrib.messages import success
 # Create your views here.
 
 class ContactView (View): 
@@ -28,6 +29,7 @@ def get_contact(request) :
             contact.message = message
             contact.phone = phone
             contact.save()
+            success( request , "The message sent")
             return redirect("home-page")
         else : 
             form = ContactForm(request.POST or None)

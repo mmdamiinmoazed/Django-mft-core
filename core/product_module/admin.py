@@ -8,7 +8,7 @@ class ProductAdmin(admin.ModelAdmin) :
     }
     list_display = ["title" , "created_at" ,"description" , "quantity","rate"  ]
     search_fields = ["title" ]
-    list_filter = ["rate" , "category" , "created_at"]
+    list_filter = ["rate" , "category" , "created_at" , "is_active"]
     # ordering = ["-created_at"]
 
 @admin.register(models.Category)

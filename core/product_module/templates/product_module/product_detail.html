@@ -3,6 +3,7 @@
 Product-Detail 
 {% endblock title %}
 {% load humanize %}
+{% load product_tags %}
 {% block content %}
  
 
@@ -50,7 +51,7 @@ Product-Detail
                 style="width:6px;height:6px;background:var(--emerald);border-radius:999px;display:inline-block"></span>
               In stock · {{ product.quantity }} items</span>
           </div>
-          <p class="desc"> {{ product.description }} </p>
+          <p class="desc"> {{ product.description|upper_case }} </p>
 
           <div class="price-row">
             <span class="now">$ {{ product.price }} </span>
@@ -245,47 +246,6 @@ Product-Detail
             <div class="price"><span class="now">$280</span></div>
             <div class="stars">★★★★☆ <span class="count">(312)</span></div>
             <a href="cart.html" class="btn">Order now →</a>
-          </article>
-          <article class="product-card">
-            <div class="img-wrap"><span class="badge">New</span><button class="wishlist">♡</button><img
-                src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500&q=80&auto=format&fit=crop"
-                alt="" /></div>
-            <div class="stock"><span class="dot"></span>In stock · 41 items</div>
-            <a href="product.html" class="name">Apple Watch Series 9</a>
-            <div class="price"><span class="now">$680</span></div>
-            <div class="stars">★★★★★ <span class="count">(245)</span></div>
-            <a href="cart.html" class="btn">Order now →</a>
-          </article>
-          <article class="product-card">
-            <div class="img-wrap"><button class="wishlist">♡</button><img
-                src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=500&q=80&auto=format&fit=crop"
-                alt="" /></div>
-            <div class="stock"><span class="dot"></span>In stock · 12 items</div>
-            <a href="product.html" class="name">Apple AirPods V57</a>
-            <div class="price"><span class="now">$680</span></div>
-            <div class="stars">★★★★★ <span class="count">(124)</span></div>
-            <a href="cart.html" class="btn">Order now →</a>
-          </article>
-          <article class="product-card">
-            <div class="img-wrap"><span class="badge badge--sale">Sale</span><button class="wishlist">♡</button><img
-                src="https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=500&q=80&auto=format&fit=crop"
-                alt="" /></div>
-            <div class="stock"><span class="dot"></span>In stock · 24 items</div>
-            <a href="product.html" class="name">Samsung S21 Ultra</a>
-            <div class="price"><span class="now">$2,580</span><span class="was">$2,780</span></div>
-            <div class="stars">★★★★★ <span class="count">(212)</span></div>
-            <a href="cart.html" class="btn">Order now →</a>
-          </article>
-          <article class="product-card">
-            <div class="img-wrap"><button class="wishlist">♡</button><img
-                src="https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500&q=80&auto=format&fit=crop"
-                alt="" /></div>
-            <div class="stock"><span class="dot"></span>In stock · 24 items</div>
-            <a href="product.html" class="name">Canon EOS R7 DSLR</a>
-            <div class="price"><span class="now">$1,920</span></div>
-            <div class="stars">★★★★☆ <span class="count">(67)</span></div>
-            <a href="cart.html" class="btn">Order now →</a>
-          </article>
         </div>
       </section>
 

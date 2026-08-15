@@ -1,0 +1,5 @@
+{% for product in products %}
+    {% include 'shared/box_product.html' %}
+{% empty %}
+    <p>محصولی وجود ندارد.</p>
+{% endfor %}

@@ -3,6 +3,7 @@
 Home page
 {% endblock %}
 {% block content %}
+{% load product_tags %}
   <!-- Mobile drawer -->
   <div class="drawer" id="drawer" aria-hidden="true">
     <div class="drawer-head">
@@ -107,6 +108,7 @@ Home page
         <div class="tabs" role="tablist">
           <button class="tab is-active" role="tab" aria-selected="true">Mobile</button>
           <button class="tab" role="tab">Watch</button>
+          <a href="">  </a>
           <button class="tab" role="tab">Camera</button>
           <button class="tab" role="tab">Accessories</button>
           <button class="tab" role="tab">Speaker</button>
@@ -116,13 +118,7 @@ Home page
 
         
           {% comment %} The products part {% endcomment %}
-          
-          {% for product in products %}
-
-            {% include 'shared/box_product.html' %}
-
-          {% endfor %}
-        
+           {% recent_products count=3 %}
         </div>
       </div>
     </section>
