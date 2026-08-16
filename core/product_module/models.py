@@ -6,13 +6,13 @@ import datetime
 
 class Brand(models.Model): 
     title = models.CharField(max_length=45)
-    slug = models.SlugField()
+    slug = models.SlugField(db_index=True)
     def __str__(self):
         return self.title
     
     def save(self,*args, **kwargs) : 
         self.slug = slugify(self.title)
-        
+
         return super().save(*args , **kwargs)
 class Product (models.Model): 
     title = models.CharField(verbose_name="Title of product" , max_length=100 , null=False)
@@ -27,10 +27,13 @@ class Product (models.Model):
 
     category = models.ManyToManyField('Category')
 
+    brand = models.ForeignKey("Brand" , null=True , 
+                              on_delete=models.CASCADE)
+
     created_at = models.DateTimeField( auto_now_add=True ,  null=True )
     
     is_active = models.BooleanField(verbose_name="Active (if quantity not zero)" ,   )
-    
+
     def __str__(self):
         return self.title
     
