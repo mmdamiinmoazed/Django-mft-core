@@ -92,10 +92,13 @@ Product page
             <div class="shop-grid">
               {% comment %} This template tag is a reference for all_product {% endcomment %}
               {% comment %} {% get_all_products %} {% endcomment %}
-             {% for product in products %}
-                  {% include 'shared/box_product.html' %}
-              {% endfor %} 
- 
+              {% if products %}
+                  {% for product in products %}
+                        {% include 'shared/box_product.html' %}
+                  {% endfor %} 
+              {% else %}
+                  <h1  style='text-align:center;'>No product</h1>
+              {% endif %}
             </div>
 
 
