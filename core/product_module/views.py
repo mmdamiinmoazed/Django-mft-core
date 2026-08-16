@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic import View
 from . import models
 from django.core.paginator import Paginator , PageNotAnInteger , EmptyPage
+from django.db.models import Q
 # Create your views here.
 class ProductView(View) : 
     def get(self , request , category=None) : 
@@ -53,14 +54,49 @@ class ProductView(View) :
             products = models.Product.objects.all()
 
         in_stock = request.GET.get("in-stock")
-        not_in_stock = request.GET.get("not-in-stock")
-        if not_in_stock == "on" : 
+
+        if in_stock == "on" : 
             products = products.filter(
-                is_active = False
+                is_active = True
             )
+
+
+        '''filtering for brands (second phase) starts''' 
+
+        brands = models.Brand.objects.all()
+        brands_dict = {}
+        for brand in brands : 
+            brands_dict[f"{brand.title}"] = brand.title
+
+        selected_brands = [value for key , value in brands_dict.items() if request.GET.get(key)]
+
+        '''This is part has been built with Ai's help'''
+        if selected_brands :    
+            brand_q = Q()
+            for name in selected_brands : 
+                brand_q |= Q(brand__title = name)
+            products = products.filter(brand_q)
+        '''filtering for brands (second phase) ends'''       
+       
+       
+       
         '''This is the end of second phase filtering 
         And this part will be completed in next days 
         There is some bugs with that they should all be fixed '''
+
+
+        '''Filtering by getting value in url segments'''
+        if category : 
+            products = models.Product.objects.filter(category__title = category)
+        
+        
+            if not products : 
+
+                return render(request , "product_module/product.html" , context={
+                        "products" : products
+                    })
+        
+        '''Filtering by value in url ends'''
 
 
         '''Pagination system coding starts here'''
@@ -73,15 +109,14 @@ class ProductView(View) :
 
         except EmptyPage : 
             products = pg.page(pg.num_pages)
-        '''Pagination coding ends here '''
-        # if category : 
-        #     products = products.filter( category__title = category )    
-        
-        #     if not products : 
+        '''Pagination coding ends here  '''
 
-        #         return render(request , "product_module/product.html" , context={
-        #                 "products" : products
-        #             })
+
+
+        
+
+
+        '''Rendering'''
         return render(request , "product_module/product.html" , context={
             "products" : products , "pages" : pg , "count_products" : count_products
         })
