@@ -3,6 +3,17 @@ from django.utils.text import slugify
 from django.utils import timezone
 import datetime
 # Create your models here.
+
+class Brand(models.Model): 
+    title = models.CharField(max_length=45)
+    slug = models.SlugField()
+    def __str__(self):
+        return self.title
+    
+    def save(self,*args, **kwargs) : 
+        self.slug = slugify(self.title)
+        
+        return super().save(*args , **kwargs)
 class Product (models.Model): 
     title = models.CharField(verbose_name="Title of product" , max_length=100 , null=False)
     price = models.IntegerField(verbose_name="Price of product " , null=False ) 
